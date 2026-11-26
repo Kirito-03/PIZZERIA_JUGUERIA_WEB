@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es-PE" data-theme="dia">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sol &amp; Brasa — Juguería Natural &amp; Pizzería a la Leña en Lima</title>
+  <meta name="description" content="Experiencia gastronómica dual en Lima: jugos 100% naturales y bowls frescos de día; pizzas artesanales de masa madre al horno de leña de noche. Pide directo por WhatsApp." />
+
+  <!-- Tipografías del Sistema de Diseño (Epilogue + Inter) e Íconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..700,0..1,0&display=block" rel="stylesheet" />
+
+  <!-- Estilos Modulares -->
+  <link rel="stylesheet" href="css/temas.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/rediseno.css" />
+</head>
+<body>
+
+  <!-- ==================== BARRA SUPERIOR: HORA PERÚ & TURNO ==================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span class="clock-label">Lima, Perú: <strong id="peruClock">--:--:--</strong></span>
+        <span id="topShiftStatus" class="status-pill is-open">Cargando turno...</span>
+      </div>
+      <div class="top-bar-right">
+        <span id="topNextShift" class="next-shift-text">Cambio automático de turno 07:00 AM / 05:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER PRINCIPAL ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Sol y Brasa Inicio">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="material-symbols-outlined">local_fire_department</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Sol &amp; Brasa <span class="brand-dual-badge">Dual</span></span>
+          <span class="brand-sub">Juguería de Día · Pizzería a la Leña</span>
+        </div>
+      </a>
+
+      <!-- Selector Dual Día / Noche -->
+      <div class="mode-segmented" role="group" aria-label="Cambiar carta Día o Noche">
+        <button type="button" class="mode-btn is-active" data-mode-btn="Día" aria-pressed="true">
+          <span class="material-symbols-outlined">wb_sunny</span>
+          <span>Juguería (Día)</span>
+        </button>
+        <button type="button" class="mode-btn" data-mode-btn="Noche" aria-pressed="false">
+          <span class="material-symbols-outlined">local_fire_department</span>
+          <span>Pizzería (Noche)</span>
+        </button>
+      </div>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#carta">Carta</a>
+        <a href="#promos">Combos</a>
+        <a href="#nosotros">Filosofía</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="btnActiveOrder" class="btn-active-order" hidden>
+          <span class="material-symbols-outlined">two_wheeler</span>
+          <span>Pedido Activo</span>
+        </button>
+
+        <a href="#" class="btn-wa-header" data-wa-direct target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.031 2C6.506 2 2.01 6.494 2.01 12.02c0 1.765.462 3.487 1.34 5.004L2 22l5.107-1.339a9.963 9.963 0 0 0 4.924 1.298h.004c5.524 0 10.02-4.496 10.02-10.022 0-2.677-1.042-5.193-2.936-7.086A9.948 9.948 0 0 0 12.03 2zm5.826 14.236c-.247.694-1.434 1.326-1.978 1.408-.506.077-1.15.109-1.854-.116-.427-.136-.975-.318-1.675-.62-2.948-1.273-4.873-4.244-5.02-4.44-.148-.196-1.198-1.594-1.198-3.04 0-1.446.757-2.157 1.026-2.452.27-.295.588-.368.784-.368.196 0 .392.002.563.01.181.009.423-.069.662.504.247.59.835 2.036.908 2.184.074.147.123.319.025.515-.098.196-.147.319-.294.491-.148.172-.31.384-.442.515-.148.148-.301.309-.13.604.172.295.764 1.26 1.64 2.042 1.126 1.004 2.076 1.316 2.371 1.464.294.147.466.122.638-.074.171-.196.736-.859.932-1.153.196-.295.392-.246.662-.147.27.098 1.717.81 2.011.957.295.147.491.221.564.343.074.123.074.712-.173 1.406z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <button type="button" class="btn-cart-header" data-open-cart aria-label="Abrir mi pedido">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="cart-label-text">Mi Pedido</span>
+          <span class="cart-badge" data-cart-count hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO DINÁMICO ==================== -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div id="heroEyebrow" class="hero-eyebrow">
+            <span class="material-symbols-outlined">wb_sunny</span>
+            100% Fruta Peruana Fresca · Sin Conservantes
+          </div>
+
+          <h1 id="heroTitle" class="hero-title">
+            Energía Natural para <span class="text-accent">Empezar tu Día</span> en Lima
+          </h1>
+
+          <p id="heroDesc" class="hero-desc">
+            Jugos prensados al instante, batidos antioxidantes, bowls de fruta fresca y triples artesanales preparados al momento con fruta selecta de estación.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-pill">
+              <strong id="heroStat1Value">100%</strong>
+              <span id="heroStat1Label">Fruta Natural</span>
+            </div>
+            <div class="stat-pill">
+              <strong id="heroStat2Value">20-30 min</strong>
+              <span id="heroStat2Label">Delivery Rápido</span>
+            </div>
+            <div class="stat-pill">
+              <strong id="heroStat3Value">★ 4.9</strong>
+              <span id="heroStat3Label">+1,200 Clientes</span>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="#carta" id="heroCtaMenu" class="btn-primary">
+              Explorar Carta de Jugos <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="#" class="btn-wa-outline" data-wa-direct target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.031 2C6.506 2 2.01 6.494 2.01 12.02c0 1.765.462 3.487 1.34 5.004L2 22l5.107-1.339a9.963 9.963 0 0 0 4.924 1.298h.004c5.524 0 10.02-4.496 10.02-10.022 0-2.677-1.042-5.193-2.936-7.086A9.948 9.948 0 0 0 12.03 2zm5.826 14.236c-.247.694-1.434 1.326-1.978 1.408-.506.077-1.15.109-1.854-.116-.427-.136-.975-.318-1.675-.62-2.948-1.273-4.873-4.244-5.02-4.44-.148-.196-1.198-1.594-1.198-3.04 0-1.446.757-2.157 1.026-2.452.27-.295.588-.368.784-.368.196 0 .392.002.563.01.181.009.423-.069.662.504.247.59.835 2.036.908 2.184.074.147.123.319.025.515-.098.196-.147.319-.294.491-.148.172-.31.384-.442.515-.148.148-.301.309-.13.604.172.295.764 1.26 1.64 2.042 1.126 1.004 2.076 1.316 2.371 1.464.294.147.466.122.638-.074.171-.196.736-.859.932-1.153.196-.295.392-.246.662-.147.27.098 1.717.81 2.011.957.295.147.491.221.564.343.074.123.074.712-.173 1.406z"/></svg>
+              <span>Pedir por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Producto Destacado en Hero -->
+        <aside class="hero-featured-card" aria-label="Producto recomendado">
+          <div class="hero-card-media">
+            <img id="heroCardImg" src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=700&q=80" alt="Tropical Boost Special" />
+            <span id="heroCardBadge" class="hero-card-badge">☀️ RECOMENDADO DEL DÍA</span>
+            <span class="hero-card-rating">★ <span id="heroCardRating">4.9 (215)</span></span>
+          </div>
+
+          <div class="hero-card-top">
+            <h2 id="heroCardTitle">Tropical Boost Special</h2>
+            <span id="heroCardPrice" class="hero-card-price">S/ 12.00</span>
+          </div>
+
+          <p id="heroCardDesc" class="hero-card-desc">
+            Mango Kent, piña Golden madura, naranja de Huando recién exprimida y menta fresca.
+          </p>
+
+          <div class="hero-card-footer">
+            <span id="heroCardTag" class="hero-card-tag">Más Pedido</span>
+            <div class="hero-card-btns">
+              <button type="button" id="heroCardCustomizeBtn" class="btn-sm-outline" data-hero-prod-id="jugo-1">Personalizar</button>
+              <button type="button" id="heroCardAddBtn" class="btn-sm-primary" data-hero-prod-id="jugo-1">
+                <span class="material-symbols-outlined">add</span> Agregar
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== SELECTOR VISUAL DE TURNOS ==================== -->
+    <section class="shift-switcher-section" aria-label="Horarios y cambio de carta">
+      <div class="container shift-cards-grid">
+        <button type="button" id="shiftCardDia" class="shift-card is-selected">
+          <div class="shift-card-left">
+            <div class="shift-icon is-dia">
+              <span class="material-symbols-outlined">wb_sunny</span>
+            </div>
+            <div>
+              <h3>Modo Día · Juguería Natural</h3>
+              <p>07:00 a.m. – 05:00 p.m. · Jugos, batidos detox, bowls y triples</p>
+            </div>
+          </div>
+          <span id="shiftBadgeDia" class="shift-action-pill">VIENDO AHORA</span>
+        </button>
+
+        <button type="button" id="shiftCardNoche" class="shift-card">
+          <div class="shift-card-left">
+            <div class="shift-icon is-noche">
+              <span class="material-symbols-outlined">local_fire_department</span>
+            </div>
+            <div>
+              <h3>Modo Noche · Pizzería a la Leña</h3>
+              <p>05:00 p.m. – 11:30 p.m. · Masa madre 48h, calzones y pan al ajo</p>
+            </div>
+          </div>
+          <span id="shiftBadgeNoche" class="shift-action-pill">VER PIZZAS</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== CATÁLOGO INTERACTIVO ==================== -->
+    <section id="carta" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span id="catalogEyebrow" class="eyebrow">CARTA MATUTINA · JUGUERÍA NATURAL</span>
+            <h2 id="catalogTitle" class="section-title">Nuestros Jugos &amp; Especialidades</h2>
+            <p id="catalogSubtitle" class="section-subtitle">
+              Elige tu tamaño, personaliza ingredientes y agrega a tu pedido o envíalo directo por WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="search-box">
+            <span class="material-symbols-outlined">search</span>
+            <input type="search" id="searchInput" placeholder="Buscar jugo, mango, fresa, pizza, pepperoni..." aria-label="Buscar productos" />
+          </div>
+
+          <div class="sort-box">
+            <label for="sortSelect">Ordenar por:</label>
+            <select id="sortSelect">
+              <option value="destacados">Más populares</option>
+              <option value="rating">Mejor valorados</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="categoryFilters" class="category-filters" role="tablist" aria-label="Filtrar por categoría"></div>
+
+        <div id="crossModeSearchHint" class="cross-hint-banner" hidden></div>
+
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== PROMOCIONES Y COMBOS ==================== -->
+    <section id="promos" class="section combos-section">
+      <div class="container">
+        <div class="section-header is-centered">
+          <span class="eyebrow">AHORRA &amp; DISFRUTA</span>
+          <h2 class="section-title">Promociones &amp; Combos Especiales</h2>
+          <p class="section-subtitle">
+            Packs pensados para compartir la frescura de la mañana o el sabor del horno a la leña por la noche. Delivery gratis desde S/ 50.00.
+          </p>
+        </div>
+
+        <div id="combosGrid" class="combos-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== FILOSOFÍA / ARTESANÍA ==================== -->
+    <section id="nosotros" class="section">
+      <div class="container story-grid">
+        <div class="story-media">
+          <img id="storyImg" src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=900&q=80" alt="Sol y Brasa Filosofía Gastronómica" loading="lazy" />
+          <div class="story-floating-badge">
+            <strong id="storyBadgeNumber">100%</strong>
+            <span id="storyBadgeText">Fruta seleccionada cada madrugada</span>
+          </div>
+        </div>
+
+        <div>
+          <span id="storyEyebrow" class="eyebrow">TRADICIÓN &amp; FRESCURA DUAL</span>
+          <h2 id="storyTitle" class="section-title">De día te nutre el sol, de noche te abraza la brasa</h2>
+          <p id="storyText" class="section-subtitle">
+            Sol &amp; Brasa nació en Lima para unir dos momentos esenciales: la energía limpia de las frutas peruanas recién exprimidas durante la mañana y el placer reconfortante de una pizza artesanal a la leña cuando cae la tarde.
+          </p>
+
+          <div class="story-pillars">
+            <div class="pillar-card">
+              <span class="material-symbols-outlined">eco</span>
+              <h4>Frutas Locales Seleccionadas</h4>
+              <p>Compramos directo a productores peruanos cada mañana: mango Kent, piña Golden y fresas de Huacho.</p>
+            </div>
+            <div class="pillar-card">
+              <span class="material-symbols-outlined">local_fire_department</span>
+              <h4>Horno a la Leña 450°C</h4>
+              <p>Masa madre con 48 horas de fermentación lenta, cocción relámpago de 90 segundos y borde canotto ligero.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== UBICACIÓN & CONTACTO ==================== -->
+    <section id="ubicacion" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">VISÍTANOS O PIDE DELIVERY</span>
+            <h2 class="section-title">Ubicación, Horarios &amp; WhatsApp Directo</h2>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <div class="location-card">
+            <div class="info-row">
+              <div class="info-icon"><span class="material-symbols-outlined">location_on</span></div>
+              <div>
+                <h4>Local Central &amp; Salón</h4>
+                <p id="storeAddressVisible">Av. La Mar 1240, Miraflores, Lima - Perú</p>
+                <p>Delivery propio en Miraflores, San Isidro, Surquillo, Barranco y zonas aledañas.</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-icon"><span class="material-symbols-outlined">schedule</span></div>
+              <div>
+                <h4>Horario Doble Turno (Lunes a Domingo)</h4>
+                <p><strong>☀️ Turno Día (Juguería):</strong> 07:00 a.m. – 05:00 p.m.</p>
+                <p><strong>🔥 Turno Noche (Pizzería):</strong> 05:00 p.m. – 11:30 p.m.</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-icon"><span class="material-symbols-outlined">chat</span></div>
+              <div>
+                <h4>WhatsApp de Pedidos Inmediatos</h4>
+                <p id="storePhoneVisible">+51 999 888 777</p>
+                <p>Sin comisiones de apps de terceros · Atención directa con cocina y maestro pizzero.</p>
+              </div>
+            </div>
+
+            <div class="location-actions">
+              <a id="storeMapLink" href="#" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined">map</span> Abrir en Google Maps
+              </a>
+              <a href="#" class="btn-primary" data-wa-direct target="_blank" rel="noopener noreferrer">
+                Chatear por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="map-wrapper">
+            <iframe id="storeMapIframe" title="Mapa de ubicación Sol y Brasa Miraflores Lima" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand-name" style="color:#fff;">Sol &amp; Brasa <span class="brand-dual-badge">Dual</span></span>
+          <p class="footer-brand-desc">
+            La experiencia gastronómica dual de Lima. Jugos 100% naturales de día y pizzas artesanales al horno de leña por la noche.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#carta">Carta Digital</a></li>
+            <li><a href="#promos">Promociones &amp; Combos</a></li>
+            <li><a href="#nosotros">Nuestra Filosofía</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Turnos de Atención</h4>
+          <ul>
+            <li>☀️ Modo Sol (Jugos): 7am – 5pm</li>
+            <li>🔥 Modo Brasa (Pizzas): 5pm – 11:30pm</li>
+            <li>🛵 Delivery Gratis desde S/ 50.00</li>
+            <li>🏪 Recojo en tienda sin costo</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Métodos de Pago</h4>
+          <div class="payment-badges">
+            <span class="pay-chip is-yape">Yape</span>
+            <span class="pay-chip is-plin">Plin</span>
+            <span class="pay-chip">Efectivo</span>
+            <span class="pay-chip">Visa / MC POS</span>
+          </div>
+          <p style="font-size:0.78rem;color:#94a3b8;margin-top:12px;">
+            Precios en Soles (S/). Pedidos confirmados al instante vía WhatsApp.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="currentYear">2026</span> Sol &amp; Brasa — Juguería &amp; Pizzería Dual. Todos los derechos reservados.</span>
+        <span>Arquitectura Mobile First · Lista para Netlify</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BARRA FLOTANTE Y NAVEGACIÓN MÓVIL ==================== -->
+  <div id="mobileFloatingCart" class="mobile-floating-cart" hidden>
+    <div class="mobile-floating-left">
+      <span id="mobileFloatingCount" class="mobile-floating-badge">0</span>
+      <div>
+        <small>Tu Pedido</small>
+        <strong id="mobileFloatingTotal">S/ 0.00</strong>
+      </div>
+    </div>
+    <button type="button" class="mobile-floating-cta" data-open-cart>Ver y Pedir WhatsApp →</button>
+  </div>
+
+  <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+    <a href="#inicio" class="mobile-tab">
+      <span class="material-symbols-outlined">home</span>
+      <span>Inicio</span>
+    </a>
+    <a href="#carta" class="mobile-tab">
+      <span class="material-symbols-outlined">restaurant_menu</span>
+      <span>Carta</span>
+    </a>
+    <button type="button" class="mobile-tab" data-open-cart>
+      <span class="material-symbols-outlined">shopping_bag</span>
+      <span class="mobile-tab-badge" data-cart-count hidden>0</span>
+      <span>Pedidos</span>
+    </button>
+    <a href="#" class="mobile-tab is-wa" data-wa-direct target="_blank" rel="noopener noreferrer">
+      <span class="material-symbols-outlined">chat</span>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- ==================== DRAWER DEL CARRITO & CHECKOUT WHATSAPP ==================== -->
+  <div id="cartDrawer" class="drawer-root" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle" hidden>
+    <div id="cartOverlay" class="drawer-overlay"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div>
+          <h2 id="cartDrawerTitle">Mi Pedido</h2>
+          <span id="cartDrawerCount" class="drawer-header-sub">0 ítems</span>
+        </div>
+        <div class="drawer-header-actions">
+          <button type="button" id="clearCartBtn" class="btn-text-danger">Vaciar</button>
+          <button type="button" id="closeCartBtn" class="btn-close-icon" aria-label="Cerrar carrito">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer-body">
+        <div id="cartEmptyState" class="cart-empty">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <h3>Tu pedido está vacío</h3>
+          <p>Agrega tus jugos naturales o pizzas artesanales favoritas y envíalos en segundos a nuestro WhatsApp.</p>
+        </div>
+
+        <div id="cartCheckoutSection" hidden>
+          <div id="freeDeliveryBanner" class="free-delivery-banner"></div>
+          <div id="cartItemsList" class="cart-items-list"></div>
+          <div id="cartUpsellBox" hidden></div>
+
+          <form id="checkoutForm" novalidate>
+            <h3 class="checkout-block-title">1. Tipo de Entrega</h3>
+            <div class="segmented-tabs">
+              <button type="button" class="segmented-tab is-active" data-delivery-tab="delivery">
+                <span class="material-symbols-outlined">two_wheeler</span> A Domicilio
+              </button>
+              <button type="button" class="segmented-tab" data-delivery-tab="recojo">
+                <span class="material-symbols-outlined">storefront</span> Recojo en Local
+              </button>
+            </div>
+
+            <div id="pickupStoreInfo" class="pickup-card" hidden>
+              <strong>Local Central Miraflores · Sin costo de envío</strong>
+              <span>Av. La Mar 1240, Miraflores. Recíbelo recién salido del horno o recién licuado en 15–25 min.</span>
+            </div>
+
+            <h3 class="checkout-block-title">2. Identificación (DNI primero)</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="custDni">DNI (8 dígitos — autocompleta tu nombre) *</label>
+                <div class="input-with-btn">
+                  <input type="text" id="custDni" inputmode="numeric" maxlength="8" placeholder="Ej. 72345678" autocomplete="off" required />
+                  <button type="button" id="btnLookupDni" class="btn-inline-action">
+                    <span class="material-symbols-outlined">badge</span>
+                    <span>Validar</span>
+                  </button>
+                </div>
+                <div id="dniStatusMsg" class="field-status-msg" hidden></div>
+              </div>
+
+              <div class="field">
+                <div class="label-row">
+                  <label for="custName">Nombre Completo *</label>
+                  <button type="button" id="btnUnlockName" class="btn-link-mini" hidden>Cambiar DNI</button>
+                </div>
+                <input type="text" id="custName" placeholder="Se autocompleta al validar tu DNI" required />
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="custPhone">Celular de contacto *</label>
+                  <input type="tel" id="custPhone" inputmode="numeric" maxlength="12" placeholder="999 000 111" required />
+                </div>
+                <div class="field">
+                  <label for="custReceipt">Comprobante</label>
+                  <select id="custReceipt">
+                    <option value="Boleta con DNI">Boleta electrónica (DNI)</option>
+                    <option value="Boleta simple">Boleta simple</option>
+                    <option value="Factura (enviaré RUC)">Factura (enviaré RUC)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="deliveryAddressFields" class="form-grid">
+                <div class="gps-box">
+                  <div class="gps-box-head">
+                    <div>
+                      <strong>¿No sabes tu dirección exacta?</strong>
+                      <span>Comparte tu pin GPS directo para el repartidor.</span>
+                    </div>
+                    <button type="button" id="btnGetGps" class="btn-gps-locate">
+                      <span class="material-symbols-outlined">my_location</span>
+                      <span id="btnGetGpsText">Usar GPS</span>
+                    </button>
+                  </div>
+                  <div id="gpsResultCard" class="gps-result-card" hidden>
+                    <div class="gps-result-info">
+                      <span class="material-symbols-outlined">check_circle</span>
+                      <div>
+                        <strong>Ubicación GPS adjunta</strong>
+                        <a id="gpsMapsLink" href="#" target="_blank" rel="noopener noreferrer">Ver pin en Google Maps ↗</a>
+                      </div>
+                    </div>
+                    <button type="button" id="btnClearGps" class="btn-link-mini">Quitar</button>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="custDistrict">Distrito *</label>
+                  <select id="custDistrict"></select>
+                </div>
+                <div class="field">
+                  <label for="custAddress" id="custAddressLabel">Dirección de Entrega *</label>
+                  <input type="text" id="custAddress" placeholder="Av. 28 de Julio 450, Dpto 302 (o usa GPS arriba)" required />
+                </div>
+                <div class="field">
+                  <label for="custReference">Referencia / N° Dpto / Timbre</label>
+                  <input type="text" id="custReference" placeholder="Ej. Puerta gris, frente al parque, tocar timbre 302" />
+                </div>
+              </div>
+            </div>
+
+            <h3 class="checkout-block-title">3. Método de Pago</h3>
+            <div class="pay-methods-grid">
+              <button type="button" class="pay-option-btn is-active" data-pay-option="Yape / Plin">
+                <span class="material-symbols-outlined">qr_code_2</span>
+                <span>Yape / Plin</span>
+              </button>
+              <button type="button" class="pay-option-btn" data-pay-option="Efectivo contraentrega">
+                <span class="material-symbols-outlined">payments</span>
+                <span>Efectivo</span>
+              </button>
+              <button type="button" class="pay-option-btn" data-pay-option="POS Tarjeta">
+                <span class="material-symbols-outlined">credit_card</span>
+                <span>POS Móvil</span>
+              </button>
+            </div>
+
+            <!-- Panel contextual según el método de pago elegido -->
+            <div id="yapePlinInfoBox" class="pay-detail-card">
+              <div class="yape-row">
+                <div class="yape-qr-badge" aria-hidden="true">
+                  <span class="material-symbols-outlined">qr_code_2</span>
+                  <small>Yape/Plin</small>
+                </div>
+                <div class="yape-data">
+                  <span class="yape-titular" id="yapeTitularText">Sol &amp; Brasa Gastronomía S.A.C.</span>
+                  <strong class="yape-number" id="yapeNumberText">999 888 777</strong>
+                  <p id="yapeInstructionText">Realiza tu Yape o Plin y adjunta la captura en WhatsApp al confirmar.</p>
+                </div>
+                <button type="button" id="btnCopyYape" class="btn-copy-wa">Copiar</button>
+              </div>
+            </div>
+
+            <div id="posInfoBox" class="pay-detail-card" hidden>
+              <div class="pos-row">
+                <span class="material-symbols-outlined">contactless</span>
+                <p>Llevamos <strong>POS inalámbrico</strong> a tu domicilio. Aceptamos Visa, Mastercard, Apple Pay y Google Pay sin recargo adicional.</p>
+              </div>
+            </div>
+
+            <div id="cashChangeGroup" class="field pay-detail-card" hidden>
+              <label for="custCashChange">¿Con cuánto pagarás en efectivo? (calculamos tu vuelto)</label>
+              <input type="number" id="custCashChange" min="0" step="1" placeholder="Ej. 50 o 100" />
+              <div id="cashChangeCalc" class="field-status-msg" hidden></div>
+            </div>
+
+            <div class="field">
+              <label for="custNotes">Observaciones generales (opcional)</label>
+              <textarea id="custNotes" rows="2" placeholder="Ej. Tocar el intercomunicador, traer ají y orégano aparte..."></textarea>
+            </div>
+
+            <!-- Resumen Económico -->
+            <div class="order-summary-box">
+              <div class="summary-row">
+                <span>Subtotal productos</span>
+                <strong id="summarySubtotal">S/ 0.00</strong>
+              </div>
+              <div class="summary-row">
+                <span id="summaryDeliveryLabel">Delivery</span>
+                <span id="summaryDeliveryValue">S/ 5.00</span>
+              </div>
+              <div class="summary-row is-total">
+                <span>Total a Pagar</span>
+                <span id="summaryTotal">S/ 0.00</span>
+              </div>
+            </div>
+
+            <!-- Vista previa del mensaje exacto de WhatsApp -->
+            <button type="button" id="toggleWaPreviewBtn" class="wa-preview-toggle" aria-expanded="false">
+              <span>Ver vista previa del mensaje de WhatsApp</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+
+            <div id="waPreviewBox" class="wa-preview-box" hidden>
+              <pre id="waPreviewText"></pre>
+              <div class="wa-preview-actions">
+                <button type="button" id="copyWaMsgBtn" class="btn-copy-wa">Copiar mensaje</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-wa-submit">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.031 2C6.506 2 2.01 6.494 2.01 12.02c0 1.765.462 3.487 1.34 5.004L2 22l5.107-1.339a9.963 9.963 0 0 0 4.924 1.298h.004c5.524 0 10.02-4.496 10.02-10.022 0-2.677-1.042-5.193-2.936-7.086A9.948 9.948 0 0 0 12.03 2zm5.826 14.236c-.247.694-1.434 1.326-1.978 1.408-.506.077-1.15.109-1.854-.116-.427-.136-.975-.318-1.675-.62-2.948-1.273-4.873-4.244-5.02-4.44-.148-.196-1.198-1.594-1.198-3.04 0-1.446.757-2.157 1.026-2.452.27-.295.588-.368.784-.368.196 0 .392.002.563.01.181.009.423-.069.662.504.247.59.835 2.036.908 2.184.074.147.123.319.025.515-.098.196-.147.319-.294.491-.148.172-.31.384-.442.515-.148.148-.301.309-.13.604.172.295.764 1.26 1.64 2.042 1.126 1.004 2.076 1.316 2.371 1.464.294.147.466.122.638-.074.171-.196.736-.859.932-1.153.196-.295.392-.246.662-.147.27.098 1.717.81 2.011.957.295.147.491.221.564.343.074.123.074.712-.173 1.406z"/></svg>
+              <span>Confirmar y Enviar Pedido por WhatsApp</span>
+            </button>
+            <p class="checkout-trust-note">
+              Sin comisiones extra · Incluye detalle completo de tus jugos y pizzas
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL DE PERSONALIZACIÓN DE PRODUCTO ==================== -->
+  <div id="productModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalProdTitle" hidden>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-floating" data-close-modal="productModal" aria-label="Cerrar ventana">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="modal-scroll">
+        <div class="modal-hero-img-wrap">
+          <img id="modalProdImg" src="" alt="" />
+        </div>
+
+        <div class="modal-body-pad">
+          <span id="modalProdShift" class="modal-shift-pill"></span>
+          <div class="modal-prod-header">
+            <h2 id="modalProdTitle"></h2>
+            <span id="modalProdRating" class="modal-rating-pill"></span>
+          </div>
+          <p id="modalProdDesc" class="modal-prod-desc"></p>
+
+          <!-- 1. Tamaños -->
+          <div class="option-group">
+            <div class="option-group-head">
+              <h3>1. Elige el Tamaño</h3>
+              <span class="option-req-tag">Obligatorio</span>
+            </div>
+            <div id="modalSizesList"></div>
+          </div>
+
+          <!-- 2. Grupo único 1 -->
+          <div id="modalGroup1Container" class="option-group">
+            <div class="option-group-head">
+              <h3 id="modalGroup1Title">2. Personalización</h3>
+              <span class="option-req-tag">1 Opción</span>
+            </div>
+            <div id="modalGroup1List"></div>
+          </div>
+
+          <!-- 3. Grupo único 2 (opcional) -->
+          <div id="modalGroup2Container" class="option-group" hidden>
+            <div class="option-group-head">
+              <h3 id="modalGroup2Title">Temperatura &amp; Base</h3>
+              <span class="option-req-tag">Opcional</span>
+            </div>
+            <div id="modalGroup2List"></div>
+          </div>
+
+          <!-- 4. Extras -->
+          <div id="modalExtrasContainer" class="option-group">
+            <div class="option-group-head">
+              <h3 id="modalExtrasTitle">Adicionales</h3>
+              <span class="option-req-tag">Opcional</span>
+            </div>
+            <div id="modalExtrasList"></div>
+          </div>
+
+          <!-- 5. Notas -->
+          <div class="field">
+            <label id="modalProdNoteLabel" for="modalProdNote">Notas de preparación (opcional)</label>
+            <textarea id="modalProdNote" rows="2" maxlength="120" placeholder="Ej: Borde bien dorado, poco hielo..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-footer-row">
+          <div class="qty-stepper">
+            <button type="button" id="modalQtyMinus" aria-label="Menos">−</button>
+            <span id="modalQtyVal">1</span>
+            <button type="button" id="modalQtyPlus" aria-label="Más">+</button>
+          </div>
+          <button type="button" id="modalAddBtn" class="btn-modal-add">
+            <span>Agregar a mi Pedido</span>
+            <strong id="modalAddBtnPrice">S/ 0.00</strong>
+          </button>
+        </div>
+        <button type="button" id="modalQuickWaBtn" class="btn-modal-wa-quick">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.031 2C6.506 2 2.01 6.494 2.01 12.02c0 1.765.462 3.487 1.34 5.004L2 22l5.107-1.339a9.963 9.963 0 0 0 4.924 1.298h.004c5.524 0 10.02-4.496 10.02-10.022 0-2.677-1.042-5.193-2.936-7.086A9.948 9.948 0 0 0 12.03 2zm5.826 14.236c-.247.694-1.434 1.326-1.978 1.408-.506.077-1.15.109-1.854-.116-.427-.136-.975-.318-1.675-.62-2.948-1.273-4.873-4.244-5.02-4.44-.148-.196-1.198-1.594-1.198-3.04 0-1.446.757-2.157 1.026-2.452.27-.295.588-.368.784-.368.196 0 .392.002.563.01.181.009.423-.069.662.504.247.59.835 2.036.908 2.184.074.147.123.319.025.515-.098.196-.147.319-.294.491-.148.172-.31.384-.442.515-.148.148-.301.309-.13.604.172.295.764 1.26 1.64 2.042 1.126 1.004 2.076 1.316 2.371 1.464.294.147.466.122.638-.074.171-.196.736-.859.932-1.153.196-.295.392-.246.662-.147.27.098 1.717.81 2.011.957.295.147.491.221.564.343.074.123.074.712-.173 1.406z"/></svg>
+          <span>Pedir solo este producto por WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL DE SEGUIMIENTO EN VIVO DEL PEDIDO ==================== -->
+  <div id="trackerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="trackerModalTitle" hidden>
+    <div class="modal-dialog">
+      <div class="tracker-header">
+        <div>
+          <span class="tracker-code-pill">
+            <span class="material-symbols-outlined">check_circle</span>
+            PEDIDO ENVIADO <span id="trackerCode">#SB-0000</span> · <span id="trackerCategory">Dual</span>
+          </span>
+          <h2 id="trackerModalTitle">¡Tu pedido está listo para WhatsApp!</h2>
+          <p id="trackerEta" class="tracker-eta">Llegada estimada: 25 - 35 min</p>
+        </div>
+        <button type="button" class="btn-close-icon" data-close-modal="trackerModal" aria-label="Cerrar seguimiento">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body-pad modal-scroll">
+        <div class="tracker-steps">
+          <div class="tracker-step is-done">
+            <div class="step-dot"><span class="material-symbols-outlined">check</span></div>
+            <div>
+              <strong>Pedido Generado</strong>
+              <span>Enviado a WhatsApp a las <span id="trackerTimePlaced">--:--</span></span>
+            </div>
+          </div>
+          <div class="tracker-step is-current">
+            <div class="step-dot"><span class="material-symbols-outlined">local_fire_department</span></div>
+            <div>
+              <strong id="trackerStepPrepTitle">Confirmación &amp; Preparación en Cocina</strong>
+              <span>Nuestro equipo valida tu mensaje de WhatsApp al instante</span>
+            </div>
+          </div>
+          <div class="tracker-step">
+            <div class="step-dot"><span class="material-symbols-outlined">two_wheeler</span></div>
+            <div>
+              <strong>En Camino a tu Dirección</strong>
+              <span>Empaque térmico ecológico para conservar temperatura</span>
+            </div>
+          </div>
+          <div class="tracker-step">
+            <div class="step-dot"><span class="material-symbols-outlined">home</span></div>
+            <div>
+              <strong>Entregado en Puerta</strong>
+              <span>¡Buen provecho con Sol &amp; Brasa!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tracker-summary-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <strong>Resumen de tu Pedido</strong>
+            <button type="button" id="btnCopyTrackerCode" class="btn-copy-wa">Copiar código</button>
+          </div>
+          <p style="margin-top:6px;color:var(--text-primary);font-weight:600;" id="trackerCustomer"></p>
+          <p style="margin-top:4px;color:var(--text-secondary);" id="trackerAddress"></p>
+          <p style="margin-top:4px;" id="trackerGpsRow" hidden>
+            <a id="trackerGpsLink" href="#" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary);font-weight:700;text-decoration:underline;">
+              🗺️ Ver ubicación GPS enviada ↗
+            </a>
+          </p>
+          <ul id="trackerItemsList"></ul>
+          <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--border-subtle);margin-top:8px;">
+            <span>Total (<span id="trackerPayment"></span>)</span>
+            <strong id="trackerTotal" style="color:var(--accent-primary);"></strong>
+          </div>
+        </div>
+
+        <div class="tracker-actions">
+          <a id="trackerReopenWA" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background:var(--wa-green);">
+            Abrir Pedido en WhatsApp
+          </a>
+          <a id="trackerHelpWA" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Consultar Estado
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST DE NOTIFICACIÓN ==================== -->
+  <div id="appToast" class="app-toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined">check_circle</span>
+    <span id="toastText">Producto agregado</span>
+  </div>
+
+  <!-- Scripts Modulares -->
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/horarios.js"></script>
+  <script src="js/dni.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

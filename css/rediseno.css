@@ -1,0 +1,129 @@
+/* Identidad cálida para la carta de día y la pizzería de noche. */
+@font-face {
+  font-family: 'Sol Brasa Icons';
+  src: url('../fonts/material-symbols-outlined.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+.material-symbols-outlined {
+  font-family: 'Sol Brasa Icons';
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+:root, [data-theme="dia"] {
+  --bg-page: #f8f5ed;
+  --bg-surface: #fffdf8;
+  --bg-surface-soft: #eee9db;
+  --bg-surface-elevated: #fffdf8;
+  --bg-hero-glow: radial-gradient(circle at 80% 25%, #e9efdc 0, transparent 48%), linear-gradient(120deg, #f9f5e9, #f5f3e9);
+  --text-primary: #25392d;
+  --text-secondary: #536255;
+  --text-muted: #647467;
+  --accent-primary: #a7472b;
+  --accent-primary-hover: #85351f;
+  --accent-primary-soft: rgba(167, 71, 43, .11);
+  --accent-secondary: #557b4c;
+  --accent-secondary-hover: #41653b;
+  --accent-secondary-soft: rgba(85, 123, 76, .12);
+  --border-subtle: rgba(49, 65, 46, .12);
+  --border-strong: rgba(49, 65, 46, .22);
+  --header-bg: rgba(255, 253, 248, .96);
+  --topbar-bg: #293e30;
+  --footer-bg: #23362a;
+  --shadow-accent: 0 10px 24px rgba(137, 59, 37, .18);
+}
+[data-theme="noche"] {
+  --bg-page: #191a16;
+  --bg-surface: #24251f;
+  --bg-surface-soft: #303129;
+  --bg-surface-elevated: #34352d;
+  --bg-hero-glow: radial-gradient(circle at 78% 20%, rgba(160, 87, 47, .23), transparent 48%), linear-gradient(120deg, #232019, #191a16);
+  --text-primary: #f9f1df;
+  --text-secondary: #d5cbb9;
+  --text-muted: #b0a895;
+  --accent-primary: #d7774b;
+  --accent-primary-hover: #bd5e37;
+  --accent-primary-soft: rgba(215, 119, 75, .15);
+  --accent-secondary: #a95739;
+  --accent-secondary-hover: #91452d;
+  --accent-secondary-soft: rgba(169, 87, 57, .2);
+  --border-subtle: rgba(245, 228, 195, .12);
+  --border-strong: rgba(245, 228, 195, .22);
+  --topbar-bg: #141510;
+  --header-bg: rgba(25, 26, 22, .96);
+  --footer-bg: #141510;
+  --shadow-accent: 0 10px 24px rgba(120, 55, 29, .22);
+  --wa-green: #4caa70;
+}
+html { scroll-padding-top: 110px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #e9a56f; outline-offset: 3px; }
+.section { padding: 82px 0; }
+.section-title { letter-spacing: -.035em; }
+.site-header { box-shadow: 0 3px 18px rgba(25, 24, 17, .05); }
+.brand-mark { border-radius: 50%; background: var(--accent-primary); }
+.brand-dual-badge { display: none; }
+.mode-segmented { background: var(--bg-surface-soft); border: 1px solid var(--border-subtle); }
+.mode-btn.is-active { box-shadow: none; }
+.hero { padding: 72px 0 60px; }
+.hero-grid { gap: 64px; }
+.hero-title { font-size: clamp(2.5rem, 4.5vw, 4.15rem); letter-spacing: -.045em; }
+.hero-desc { max-width: 510px; line-height: 1.7; }
+.hero-eyebrow { letter-spacing: .025em; }
+.hero-featured-card { border-radius: 26px; padding: 12px; box-shadow: var(--shadow-lg); }
+.hero-card-media { border-radius: 18px; }
+.hero-card-top, .hero-card-desc, .hero-card-footer { margin-left: 8px; margin-right: 8px; }
+.stat-pill { box-shadow: none; background: transparent; border: 0; border-left: 2px solid var(--accent-primary); border-radius: 0; padding: 2px 14px; }
+.btn-primary, .btn-sm-primary, .btn-add-card, .btn-add-combo { box-shadow: none; }
+.shift-card, .product-card, .combo-card, .location-card { box-shadow: none; }
+.shift-card.is-selected { box-shadow: 0 0 0 1px var(--accent-primary); }
+.product-card, .combo-card { border-radius: 20px; }
+.product-media { aspect-ratio: 1.35; }
+.product-body { padding: 20px; }
+.category-filters { scrollbar-width: thin; }
+@media (max-width: 720px) {
+  html { scroll-padding-top: 145px; }
+  body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .container { padding-left: 18px; padding-right: 18px; }
+  .section { padding: 58px 0; }
+  .top-bar-inner { min-height: 34px; }
+  .clock-label { font-size: .72rem; }
+  .status-pill { font-size: .65rem; }
+  .header-inner { padding: 9px 0 11px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand-sub { font-size: .65rem; }
+  .mode-segmented { padding: 4px; }
+  .mode-btn { min-height: 40px; }
+  .hero { padding: 38px 0 32px; }
+  .hero-grid { gap: 30px; }
+  .hero-title { font-size: clamp(2.25rem, 10vw, 3.2rem); line-height: 1.06; }
+  .hero-desc { font-size: .96rem; line-height: 1.6; }
+  .hero-stats { gap: 2px; }
+  .stat-pill { padding: 1px 9px; }
+  .stat-pill span { font-size: .68rem; }
+  .hero-ctas > a { min-height: 48px; }
+  .hero-featured-card { max-width: 520px; width: 100%; margin: 0 auto; }
+  .shift-cards-grid { gap: 10px; }
+  .shift-card { min-height: 74px; }
+  .product-media { aspect-ratio: 1.5; }
+  .mobile-bottom-nav { height: calc(64px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+  .mobile-floating-cart { bottom: calc(74px + env(safe-area-inset-bottom)); }
+  .mobile-tab { min-height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+@media (max-width: 720px) {
+  .header-inner { padding-left: 18px; padding-right: 18px; }
+  .top-bar-inner { padding-left: 18px; padding-right: 18px; }
+}

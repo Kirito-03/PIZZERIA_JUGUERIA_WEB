@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Sol & Brasa - Estilos Responsivos (Desktop, Tablet y Smartphone)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-grid,
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding-bottom: 124px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 46px 0;
+  }
+
+  .top-bar-right {
+    display: none;
+  }
+
+  .header-inner {
+    height: auto;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .mode-segmented {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mode-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .btn-wa-header {
+    display: none;
+  }
+
+  .btn-cart-header .cart-label-text {
+    display: none;
+  }
+
+  .hero {
+    padding: 28px 0 24px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .stat-pill {
+    padding: 10px;
+  }
+
+  .stat-pill strong {
+    font-size: 1rem;
+  }
+
+  .shift-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .combo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .combo-media {
+    min-height: 170px;
+    max-height: 190px;
+  }
+
+  .story-pillars,
+  .form-grid-2,
+  .tracker-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Barra flotante móvil de carrito */
+  .mobile-floating-cart {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 72px;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: var(--radius-pill);
+    background: #111827;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.40);
+  }
+
+  .mobile-floating-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-floating-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+  }
+
+  .mobile-floating-left small {
+    display: block;
+    font-size: 0.68rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+
+  .mobile-floating-left strong {
+    font-size: 0.98rem;
+  }
+
+  .mobile-floating-cta {
+    padding: 9px 15px;
+    border-radius: var(--radius-pill);
+    border: none;
+    background: var(--wa-green);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+
+  /* Barra inferior estilo App */
+  .mobile-bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    height: 62px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .mobile-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .mobile-tab.is-wa {
+    color: var(--wa-green);
+  }
+
+  .mobile-tab-badge {
+    position: absolute;
+    top: 6px;
+    right: calc(50% - 20px);
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-primary);
+    color: #ffffff;
+    font-size: 0.65rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .app-toast {
+    bottom: 136px;
+    width: calc(100% - 32px);
+    justify-content: center;
+  }
+}
