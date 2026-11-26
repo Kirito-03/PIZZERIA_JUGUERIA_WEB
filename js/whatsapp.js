@@ -128,7 +128,7 @@ window.SolBrasaWhatsApp = (function () {
       const textoDelivery = resumen.costoDelivery === 0
         ? `¡GRATIS! (Pedido ≥ ${cfg.moneda} ${cfg.montoDeliveryGratis.toFixed(0)})`
         : `${cfg.moneda} ${resumen.costoDelivery.toFixed(2)}`;
-      bloques.push(`• Delivery (${cliente.distrito || "Lima"}): ${textoDelivery}`);
+      bloques.push(`• Delivery (${cliente.distrito || "Puerto Inca"}): ${textoDelivery}`);
     } else {
       bloques.push(`• Recojo en local: ${cfg.moneda} 0.00`);
     }
@@ -158,7 +158,7 @@ window.SolBrasaWhatsApp = (function () {
     bloques.push(`*📍 ENTREGA Y UBICACIÓN:*`);
     if (cliente.modalidad === "delivery") {
       bloques.push(`• Modalidad: 🛵 *Delivery a Domicilio*`);
-      bloques.push(`• Distrito: ${cliente.distrito || "Lima"}`);
+      bloques.push(`• Distrito: ${cliente.distrito || "Puerto Inca"}`);
       bloques.push(`• Dirección: ${cliente.direccion || "Según pin GPS adjunto"}`);
       if (cliente.referencia) {
         bloques.push(`• Referencia: ${cliente.referencia}`);

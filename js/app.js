@@ -127,7 +127,7 @@
       $("heroCardBadge").textContent = "🔥 LA MÁS PEDIDA";
     } else {
       $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">wb_sunny</span> 100% Fruta Peruana Fresca · Sin Conservantes`;
-      $("heroTitle").innerHTML = `Energía Natural para <span class="text-accent">Empezar tu Día</span> en Lima`;
+      $("heroTitle").innerHTML = `Energía Natural para <span class="text-accent">Empezar tu Día</span> en Puerto Inca`;
       $("heroDesc").textContent =
         "Jugos prensados al instante, batidos antioxidantes, bowls de fruta fresca y triples artesanales preparados al momento con fruta selecta de estación.";
       $("heroStat1Value").textContent = "100%";
@@ -189,7 +189,7 @@
       $("storyEyebrow").textContent = "TRADICIÓN & FRESCURA DUAL";
       $("storyTitle").textContent = "De día te nutre el sol, de noche te abraza la brasa";
       $("storyText").textContent =
-        "Sol & Brasa nació en Lima para unir dos momentos esenciales: la energía limpia de las frutas peruanas recién exprimidas durante la mañana y el placer reconfortante de una pizza artesanal a la leña cuando cae la tarde.";
+        "Sol & Brasa nació en Puerto Inca para unir dos momentos esenciales: la energía limpia de las frutas peruanas recién exprimidas durante la mañana y el placer reconfortante de una pizza artesanal a la leña cuando cae la tarde.";
       $("storyImg").src = "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=900&q=80";
       $("storyBadgeNumber").textContent = "100%";
       $("storyBadgeText").textContent = "Fruta seleccionada cada madrugada";
@@ -762,7 +762,7 @@
     const calcEl = $("cashChangeCalc");
     if (!calcEl || estado.pagoSeleccionado !== "Efectivo contraentrega") return;
 
-    const distrito = $("custDistrict") ? $("custDistrict").value : "Miraflores";
+    const distrito = $("custDistrict") ? $("custDistrict").value : "Puerto Inca";
     const resumen = Carrito.calcularResumen(estado.modalidadCheckout, distrito);
     const monto = parseFloat($("custCashChange") ? $("custCashChange").value : "");
 
@@ -792,7 +792,7 @@
       telefono: ($("custPhone") ? $("custPhone").value : "").trim(),
       comprobante: $("custReceipt") ? $("custReceipt").value : "Boleta con DNI",
       modalidad: estado.modalidadCheckout,
-      distrito: $("custDistrict") ? $("custDistrict").value : "Miraflores",
+      distrito: $("custDistrict") ? $("custDistrict").value : "Puerto Inca",
       direccion: ($("custAddress") ? $("custAddress").value : "").trim(),
       referencia: ($("custReference") ? $("custReference").value : "").trim(),
       gps: estado.gpsActual,
@@ -804,7 +804,7 @@
 
   function renderizarCarrito(snapshot) {
     const items = snapshot.items;
-    const distrito = $("custDistrict") ? $("custDistrict").value : "Miraflores";
+    const distrito = $("custDistrict") ? $("custDistrict").value : "Puerto Inca";
     const resumen = Carrito.calcularResumen(estado.modalidadCheckout, distrito);
 
     // Contadores navbar, barra flotante móvil y tab bar
@@ -1585,7 +1585,7 @@
     }
     if ($("custPhone") && savedCustomer.telefono) $("custPhone").value = savedCustomer.telefono;
     if ($("custReceipt") && savedCustomer.comprobante) $("custReceipt").value = savedCustomer.comprobante;
-    if ($("custDistrict") && savedCustomer.distrito) $("custDistrict").value = savedCustomer.distrito;
+    if ($("custDistrict") && CFG.distritosDelivery.includes(savedCustomer.distrito)) $("custDistrict").value = savedCustomer.distrito;
     if ($("custAddress") && savedCustomer.direccion) $("custAddress").value = savedCustomer.direccion;
     if ($("custReference") && savedCustomer.referencia) $("custReference").value = savedCustomer.referencia;
 

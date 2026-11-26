@@ -9,8 +9,8 @@ window.SOL_BRASA_CONFIG = {
   telefonoWhatsApp: "51999888777",
   telefonoVisible: "+51 999 888 777",
   telefonoFijo: "(01) 445-9988",
-  direccion: "Av. La Mar 1240, Miraflores, Lima - Perú",
-  referenciaLocal: "A 2 cuadras del Óvalo Gutiérrez • Terraza pet-friendly",
+  direccion: "Puerto Inca, Perú · Dirección por confirmar",
+  referenciaLocal: "Dirección exacta por confirmar",
   pagos: {
     yapePlinNumero: "999 888 777",
     yapePlinTitular: "Sol & Brasa Gastronomía S.A.C.",
@@ -21,26 +21,8 @@ window.SOL_BRASA_CONFIG = {
     endpoint: "/.netlify/functions/consultar-dni",
     modoDemoLocal: true
   },
-  distritosDelivery: [
-    "Miraflores",
-    "San Isidro",
-    "Surquillo",
-    "Barranco",
-    "San Borja",
-    "Magdalena del Mar",
-    "Jesús María",
-    "Los Olivos"
-  ],
-  tarifasDelivery: {
-    "Miraflores": 5.00,
-    "Surquillo": 5.00,
-    "San Isidro": 6.00,
-    "Barranco": 6.50,
-    "San Borja": 7.00,
-    "Magdalena del Mar": 7.50,
-    "Jesús María": 7.50,
-    "Los Olivos": 9.00
-  },
+  distritosDelivery: ["Puerto Inca"],
+  tarifasDelivery: {},
   moneda: "S/",
   costoDeliveryBase: 5.00,
   montoDeliveryGratis: 50.00,
@@ -58,8 +40,8 @@ window.SOL_BRASA_CONFIG = {
       etiqueta: "05:00 p.m. - 11:30 p.m."
     }
   },
-  mapsEmbedUrl: "https://www.openstreetmap.org/export/embed.html?bbox=-77.0535%2C-12.1180%2C-77.0395%2C-12.1085&layer=mapnik&marker=-12.1132%2C-77.0465",
-  mapsLinkUrl: "https://www.google.com/maps/search/?api=1&query=Av.+La+Mar+1240,+Miraflores,+Lima+Peru",
+  mapsEmbedUrl: "",
+  mapsLinkUrl: "https://www.google.com/maps/search/?api=1&query=Puerto+Inca%2C+Per%C3%BA",
   redes: {
     instagram: "https://instagram.com",
     facebook: "https://facebook.com",

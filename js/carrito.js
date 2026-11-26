@@ -96,7 +96,7 @@ window.SolBrasaCarrito = (function () {
     return cfg.costoDeliveryBase;
   }
 
-  function calcularResumen(modalidad = "delivery", distrito = "Miraflores") {
+  function calcularResumen(modalidad = "delivery", distrito = "Puerto Inca") {
     const cfg = window.SOL_BRASA_CONFIG;
     const cantidadTotal = items.reduce((acc, it) => acc + it.cantidad, 0);
     const subtotal = items.reduce((acc, it) => acc + it.precioUnitario * it.cantidad, 0);
@@ -166,7 +166,7 @@ window.SolBrasaCarrito = (function () {
       telefono: "",
       comprobante: "Boleta simple",
       modalidad: "delivery",
-      distrito: "Miraflores",
+      distrito: "Puerto Inca",
       direccion: "",
       referencia: "",
       pago: "Yape / Plin",
