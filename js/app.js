@@ -110,36 +110,36 @@
 
     if (modo === "Noche") {
       $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">local_fire_department</span> Horno de Leña a 450°C · Masa Madre 48h`;
-      $("heroTitle").innerHTML = `El Fuego y la Tradición <span class="text-accent">en Cada Masa a la Leña</span>`;
+      $("heroTitle").innerHTML = `Pizza a la leña, <span class="text-accent">hecha para compartir</span>`;
       $("heroDesc").textContent =
-        "Pizzas artesanales de estilo napolitano contemporáneo horneadas con madera de quebracho blanco, pomodoro San Marzano y mozzarella fior di latte fundida al momento.";
+        "Masa artesanal, ingredientes frescos y mucho sabor.";
       $("heroStat1Value").textContent = "450°C";
       $("heroStat1Label").textContent = "Horno a la Leña";
       $("heroStat2Value").textContent = "48 hrs";
       $("heroStat2Label").textContent = "Fermentación Lenta";
       $("heroStat3Value").textContent = "★ 4.95";
       $("heroStat3Label").textContent = "+1,400 Reseñas";
-      $("heroCtaMenu").innerHTML = `Explorar Carta Nocturna <span class="material-symbols-outlined">arrow_forward</span>`;
+      $("heroCtaMenu").innerHTML = `Ver pizzas <span class="material-symbols-outlined">arrow_forward</span>`;
       $("catalogEyebrow").textContent = "CARTA NOCTURNA · PIZZERÍA A LA LEÑA";
       $("catalogTitle").textContent = "Nuestras Pizzas al Quebracho";
-      $("catalogSubtitle").textContent = "Masa con 70% de hidratación, ingredientes importados y bordes aireados. Personaliza tu pizza y pídela por WhatsApp.";
+      $("catalogSubtitle").textContent = "Elige tu favorita y personalízala a tu gusto.";
       $("searchInput").placeholder = "Buscar pizza, pepperoni, cuatro quesos, calzone o jugo...";
       $("heroCardBadge").textContent = "🔥 LA MÁS PEDIDA";
     } else {
       $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">wb_sunny</span> 100% Fruta Peruana Fresca · Sin Conservantes`;
-      $("heroTitle").innerHTML = `Energía Natural para <span class="text-accent">Empezar tu Día</span> en Puerto Inca`;
+      $("heroTitle").innerHTML = `Jugos frescos <span class="text-accent">para alegrar tu día</span>`;
       $("heroDesc").textContent =
-        "Jugos prensados al instante, batidos antioxidantes, bowls de fruta fresca y triples artesanales preparados al momento con fruta selecta de estación.";
+        "Fruta, sabor y energía, preparados al momento.";
       $("heroStat1Value").textContent = "100%";
       $("heroStat1Label").textContent = "Fruta Natural";
       $("heroStat2Value").textContent = "20-30 min";
       $("heroStat2Label").textContent = "Delivery Rápido";
       $("heroStat3Value").textContent = "★ 4.9";
       $("heroStat3Label").textContent = "+1,200 Clientes";
-      $("heroCtaMenu").innerHTML = `Explorar Carta de Jugos <span class="material-symbols-outlined">arrow_forward</span>`;
+      $("heroCtaMenu").innerHTML = `Ver jugos <span class="material-symbols-outlined">arrow_forward</span>`;
       $("catalogEyebrow").textContent = "CARTA MATUTINA · JUGUERÍA NATURAL";
       $("catalogTitle").textContent = "Nuestros Jugos & Especialidades";
-      $("catalogSubtitle").textContent = "Elige tu tamaño, nivel de azúcar o superfoods favoritos y envía tu pedido directo a nuestro WhatsApp.";
+      $("catalogSubtitle").textContent = "Elige tu favorito y prepáralo a tu gusto.";
       $("searchInput").placeholder = "Buscar jugo, mango, fresa, detox, triple o pizza...";
       $("heroCardBadge").textContent = "☀️ RECOMENDADO DEL DÍA";
     }
@@ -152,7 +152,7 @@
       };
       $("heroCardRating").textContent = `${prodHero.rating} (${prodHero.resenas})`;
       $("heroCardTitle").textContent = prodHero.nombre;
-      $("heroCardDesc").textContent = prodHero.descripcion;
+      $("heroCardDesc").textContent = prodHero.descripcionCorta || prodHero.descripcion;
       $("heroCardPrice").textContent = formatoPrecio(prodHero.precio);
       $("heroCardTag").textContent = prodHero.etiqueta;
       $("heroCardAddBtn").setAttribute("data-hero-prod-id", prodHero.id);
@@ -181,7 +181,7 @@
       $("storyEyebrow").textContent = "EL SECRETO DE NUESTRO SABOR";
       $("storyTitle").textContent = "Fermentación Lenta de 48h y Leña de Quebracho";
       $("storyText").textContent =
-        "En Sol & Brasa no usamos aceleradores ni levaduras comerciales en exceso. Cada bollo reposa en cámara de frío por 48 horas para lograr una masa aireada, ligera y digestiva, horneada en 90 segundos a 450°C.";
+        "Preparamos nuestra masa con tiempo y la horneamos a la leña para compartirla contigo.";
       $("storyImg").src = "img/banners/horno-lena.jpg";
       $("storyBadgeNumber").textContent = "48h";
       $("storyBadgeText").textContent = "Masa Madre Viva & Horno de Piedra";
@@ -189,7 +189,7 @@
       $("storyEyebrow").textContent = "TRADICIÓN & FRESCURA DUAL";
       $("storyTitle").textContent = "De día te nutre el sol, de noche te abraza la brasa";
       $("storyText").textContent =
-        "Sol & Brasa nació en Puerto Inca para unir dos momentos esenciales: la energía limpia de las frutas peruanas recién exprimidas durante la mañana y el placer reconfortante de una pizza artesanal a la leña cuando cae la tarde.";
+        "En Puerto Inca, compartimos jugos frescos de día y pizzas a la leña de noche.";
       $("storyImg").src = "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=900&q=80";
       $("storyBadgeNumber").textContent = "100%";
       $("storyBadgeText").textContent = "Fruta seleccionada cada madrugada";
@@ -366,7 +366,9 @@
                 <span class="product-price" id="price-${prod.id}">${formatoPrecio(precioFinal)}</span>
               </div>
 
-              <p class="product-desc">${escapeHtml(prod.descripcion)}</p>
+              <p class="product-desc">${escapeHtml(prod.descripcionCorta || prod.descripcion)}</p>
+
+              <button type="button" class="btn-sm-outline product-customize" data-action="open-customize" data-prod-id="${prod.id}">Personalizar</button>
 
               <div class="product-sizes" aria-label="Tamaño o presentación">
                 ${presButtons}

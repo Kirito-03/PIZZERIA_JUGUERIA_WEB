@@ -127,3 +127,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .header-inner { padding-left: 18px; padding-right: 18px; }
   .top-bar-inner { padding-left: 18px; padding-right: 18px; }
 }
+/* Una portada más breve lleva rápidamente a la carta. */
+.hero-stats, .shift-switcher-section { display: none; }
+.hero-desc { margin-bottom: 24px; }
+.product-customize { align-self: flex-start; min-height: 40px; }
+@media (max-width: 720px) {
+  .hero { padding: 30px 0 34px; }
+  .hero-featured-card { display: none; }
+  .hero-title { font-size: clamp(2.15rem, 9vw, 3rem); }
+}

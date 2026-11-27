@@ -125,6 +125,7 @@ window.SOL_BRASA_PRODUCTOS = [
   // ===================== MODO DÍA: JUGUERÍA =====================
   {
     id: "jugo-1",
+    descripcionCorta: "Mango, piña, naranja y menta.",
     nombre: "Tropical Boost Special",
     descripcion: "Mango Kent, piña Golden madura, naranja de Huando recién exprimida y menta fresca. 100% fruta natural.",
     precio: 12.00,
@@ -145,6 +146,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-2",
+    descripcionCorta: "Plátano, papaya, piña, beterraga, algarrobina, huevo y leche.",
     nombre: "Jugo Especial de la Casa",
     descripcion: "Clásico nutritivo limeño: plátano de seda, papaya, piña, beterraga, algarrobina piurana, huevo y leche fresca.",
     precio: 12.50,
@@ -165,6 +167,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-3",
+    descripcionCorta: "Arándanos, fresas, frambuesas, chía y miel.",
     nombre: "Wild Berry Antioxidant",
     descripcion: "Arándanos peruanos, fresas frescas de Huacho, frambuesas, chía hidratada y un toque de miel andina.",
     precio: 13.50,
@@ -185,6 +188,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-4",
+    descripcionCorta: "Fresas, leche y un toque de vainilla.",
     nombre: "Fresa con Leche Cremoso",
     descripcion: "Fresas seleccionadas licuadas al instante con leche entera cremosa y un sutil toque de vainilla natural.",
     precio: 10.50,
@@ -205,6 +209,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-5",
+    descripcionCorta: "Papaya, piña, plátano y naranja.",
     nombre: "Surtido Clásico Limeño",
     descripcion: "Equilibrio perfecto de papaya dulce, piña Golden, plátano de seda y zumo de naranja recién exprimida.",
     precio: 8.50,
@@ -225,6 +230,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-6",
+    descripcionCorta: "Espinaca, manzana, pepino, kion, apio y limón.",
     nombre: "Batido Verde Detox Vitality",
     descripcion: "Espinaca baby orgánica, manzana verde, pepino fresco, kion rallado, apio y zumo de limón peruano.",
     precio: 11.00,
@@ -245,6 +251,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-7",
+    descripcionCorta: "Fruta fresca con miel y granola.",
     nombre: "Ensalada Juicy Bowl Suprema",
     descripcion: "Papaya, melón, piña, plátano, fresa, uvas y kiwi bañados en miel de abeja andina con granola artesanal.",
     precio: 14.50,
@@ -265,6 +272,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "jugo-8",
+    descripcionCorta: "Palta, huevo y mayonesa de la casa.",
     nombre: "Triple Clásico Palta & Huevo",
     descripcion: "Pan de molde artesanal súper suave con láminas de palta fuerte madura, huevo duro y mayonesa de la casa.",
     precio: 7.50,
@@ -287,6 +295,7 @@ window.SOL_BRASA_PRODUCTOS = [
   // ===================== MODO NOCHE: PIZZERÍA A LA LEÑA =====================
   {
     id: "pizza-1",
+    descripcionCorta: "Mozzarella, tomate y albahaca fresca.",
     nombre: "Napolitana Suprema Brasa",
     descripcion: "Masa madre 48h horneada a 450°C, pomodoro San Marzano DOP, mozzarella fior di latte ahumado, albahaca fresca y aceite de oliva virgen.",
     precio: 45.00,
@@ -307,6 +316,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-2",
+    descripcionCorta: "Pepperoni, mozzarella y miel picante.",
     nombre: "Pepperoni & Miel Picante",
     descripcion: "Abundante pepperoni americano crocante en copas, mozzarella artesanal fundida y nuestro toque de miel pura con ají amarillo ahumado.",
     precio: 45.00,
@@ -327,6 +337,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-3",
+    descripcionCorta: "Mozzarella, gorgonzola, parmesano y queso andino.",
     nombre: "Cuatro Quesos Brasa",
     descripcion: "Fusión cremosa de mozzarella fior di latte, gorgonzola italiano, parmesano reggiano de 18 meses y queso andino curado.",
     precio: 46.00,
@@ -347,6 +358,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-4",
+    descripcionCorta: "Champiñones al ajillo, prosciutto y arúgula.",
     nombre: "Champiñones & Prosciutto",
     descripcion: "Champiñones frescos salteados al ajillo, finas lonchas de prosciutto di Parma añadidas post-horno y hojas tiernas de arúgula.",
     precio: 48.00,
@@ -367,6 +379,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-5",
+    descripcionCorta: "Tomate, mozzarella, jamón y orégano.",
     nombre: "Americana Suprema a la Leña",
     descripcion: "Salsa de tomates italianos horneados, abundante queso mozzarella fundido, jamón inglés ahumado y orégano de chacra.",
     precio: 36.00,
@@ -387,6 +400,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-6",
+    descripcionCorta: "Jamón, piña caramelizada y mozzarella.",
     nombre: "Hawaiana Golden al Quebracho",
     descripcion: "Jamón inglés premium, trozos de piña Golden caramelizada al fuego de leña y generosa capa de mozzarella.",
     precio: 38.00,
@@ -407,6 +421,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-7",
+    descripcionCorta: "Ricota, mozzarella, jamón y salsa de tomate.",
     nombre: "Calzone Relleno Tradición",
     descripcion: "Masa de leña doblada a mano y sellada con ricota fresca, mozzarella, jamón artesanal y espejo de salsa pomodoro.",
     precio: 36.00,
@@ -427,6 +442,7 @@ window.SOL_BRASA_PRODUCTOS = [
   },
   {
     id: "pizza-8",
+    descripcionCorta: "Pan artesanal con ajo, orégano y mozzarella.",
     nombre: "Pan al Ajo Supremo a la Leña",
     descripcion: "Baguette artesanal tostado al fuego vivo con mantequilla de ajo confitado, orégano fresco y abundante mozzarella dorada.",
     precio: 18.00,
