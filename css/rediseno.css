@@ -136,3 +136,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-featured-card { display: none; }
   .hero-title { font-size: clamp(2.15rem, 9vw, 3rem); }
 }
+.menu-promos { display: grid; gap: 12px; margin-bottom: 24px; }
+.menu-promos p { padding: 16px 18px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); color: var(--text-secondary); }
+.menu-promos strong { color: var(--text-primary); }

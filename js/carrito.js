@@ -3,7 +3,7 @@
  * Soporta Juguería (Día), Pizzería (Noche), Combos, recargos reales y tarifa por distrito.
  */
 window.SolBrasaCarrito = (function () {
-  const STORAGE_KEY = "sol_brasa_carrito_v2";
+  const STORAGE_KEY = "sol_brasa_carrito_carta_2026";
   const STORAGE_ORDER_KEY = "sol_brasa_ultimo_pedido_v2";
   const STORAGE_CUSTOMER_KEY = "sol_brasa_cliente_v2";
 

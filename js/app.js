@@ -105,14 +105,14 @@
 
   function actualizarHero(modo) {
     const prodHero = modo === "Noche"
-      ? PRODUCTOS.find((p) => p.id === "pizza-1")
+      ? PRODUCTOS.find((p) => p.id === "menu-pizza-1")
       : PRODUCTOS.find((p) => p.id === "jugo-1");
 
     if (modo === "Noche") {
-      $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">local_fire_department</span> Horno de Leña a 450°C · Masa Madre 48h`;
-      $("heroTitle").innerHTML = `Pizza a la leña, <span class="text-accent">hecha para compartir</span>`;
+      $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">local_pizza</span> Pizzas para compartir`;
+      $("heroTitle").innerHTML = `Pizza para <span class="text-accent">compartir</span>`;
       $("heroDesc").textContent =
-        "Masa artesanal, ingredientes frescos y mucho sabor.";
+        "Elige tu favorita, tu tamaño y disfruta.";
       $("heroStat1Value").textContent = "450°C";
       $("heroStat1Label").textContent = "Horno a la Leña";
       $("heroStat2Value").textContent = "48 hrs";
@@ -120,11 +120,11 @@
       $("heroStat3Value").textContent = "★ 4.95";
       $("heroStat3Label").textContent = "+1,400 Reseñas";
       $("heroCtaMenu").innerHTML = `Ver pizzas <span class="material-symbols-outlined">arrow_forward</span>`;
-      $("catalogEyebrow").textContent = "CARTA NOCTURNA · PIZZERÍA A LA LEÑA";
-      $("catalogTitle").textContent = "Nuestras Pizzas al Quebracho";
+      $("catalogEyebrow").textContent = "CARTA DE PIZZAS";
+      $("catalogTitle").textContent = "Nuestras pizzas";
       $("catalogSubtitle").textContent = "Elige tu favorita y personalízala a tu gusto.";
       $("searchInput").placeholder = "Buscar pizza, pepperoni, cuatro quesos, calzone o jugo...";
-      $("heroCardBadge").textContent = "🔥 LA MÁS PEDIDA";
+      $("heroCardBadge").textContent = "🍕 NUESTRA CARTA";
     } else {
       $("heroEyebrow").innerHTML = `<span class="material-symbols-outlined">wb_sunny</span> 100% Fruta Peruana Fresca · Sin Conservantes`;
       $("heroTitle").innerHTML = `Jugos frescos <span class="text-accent">para alegrar tu día</span>`;
@@ -150,7 +150,8 @@
       $("heroCardImg").onerror = function () {
         this.src = fallbackPorTurno(prodHero.turno);
       };
-      $("heroCardRating").textContent = `${prodHero.rating} (${prodHero.resenas})`;
+      $("heroCardRating").parentElement.hidden = !prodHero.rating;
+      $("heroCardRating").textContent = prodHero.rating ? `${prodHero.rating} (${prodHero.resenas})` : "";
       $("heroCardTitle").textContent = prodHero.nombre;
       $("heroCardDesc").textContent = prodHero.descripcionCorta || prodHero.descripcion;
       $("heroCardPrice").textContent = formatoPrecio(prodHero.precio);
@@ -179,12 +180,12 @@
   function actualizarSeccionFilosofia(modo) {
     if (modo === "Noche") {
       $("storyEyebrow").textContent = "EL SECRETO DE NUESTRO SABOR";
-      $("storyTitle").textContent = "Fermentación Lenta de 48h y Leña de Quebracho";
+      $("storyTitle").textContent = "Pizzas para compartir";
       $("storyText").textContent =
-        "Preparamos nuestra masa con tiempo y la horneamos a la leña para compartirla contigo.";
+        "Elige entre nuestras pizzas clásicas y especiales.";
       $("storyImg").src = "img/banners/horno-lena.jpg";
-      $("storyBadgeNumber").textContent = "48h";
-      $("storyBadgeText").textContent = "Masa Madre Viva & Horno de Piedra";
+      $("storyBadgeNumber").textContent = "🍕";
+      $("storyBadgeText").textContent = "Pizzas para compartir";
     } else {
       $("storyEyebrow").textContent = "TRADICIÓN & FRESCURA DUAL";
       $("storyTitle").textContent = "De día te nutre el sol, de noche te abraza la brasa";
@@ -329,7 +330,7 @@
 
         const presButtons = prod.presentaciones
           .map((pres, idx) => {
-            const labelExtra = pres.extra > 0 ? ` +${CFG.moneda}${pres.extra}` : "";
+            const labelExtra = prod.turno === "Noche" ? ` · ${formatoPrecio(prod.precio + pres.extra)}` : (pres.extra > 0 ? ` +${CFG.moneda}${pres.extra}` : "");
             const corto = pres.nombre.split("(")[0].trim();
             return `
               <button type="button"
@@ -348,7 +349,7 @@
             <div class="product-media" data-action="open-customize" data-prod-id="${prod.id}" role="button" tabindex="0" aria-label="Personalizar ${escapeHtml(prod.nombre)}">
               <img src="${prod.imagen}" alt="${escapeHtml(prod.nombre)}" loading="lazy"
                    onerror="this.onerror=null;this.src='${fallbackPorTurno(prod.turno)}'">
-              <span class="badge-rating">★ ${prod.rating} <small>(${prod.resenas})</small></span>
+              ${prod.rating ? `<span class="badge-rating">★ ${prod.rating} <small>(${prod.resenas})</small></span>` : ""}
               ${prod.etiqueta ? `<span class="badge-feature">${escapeHtml(prod.etiqueta)}</span>` : ""}
               <span class="media-customize-hint">
                 <span class="material-symbols-outlined">tune</span> Personalizar
@@ -358,7 +359,7 @@
             <div class="product-body">
               <div class="product-meta-row">
                 <span class="product-cat">${escapeHtml(prod.categoria)}</span>
-                <span class="product-meta-chip">${escapeHtml(prod.tiempo)} · ${escapeHtml(prod.calorias)}</span>
+                ${prod.tiempo ? `<span class="product-meta-chip">${escapeHtml(prod.tiempo)} · ${escapeHtml(prod.calorias)}</span>` : ""}
               </div>
 
               <div class="product-title-row">
@@ -461,7 +462,7 @@
     $("modalProdShift").textContent = prod.turno === "Noche" ? "🔥 Turno Noche · Pizzería a la Leña" : "☀️ Turno Día · Juguería Natural";
     $("modalProdTitle").textContent = prod.nombre;
     $("modalProdDesc").textContent = prod.descripcion;
-    $("modalProdRating").textContent = `★ ${prod.rating} (${prod.resenas} reseñas)`;
+    $("modalProdRating").textContent = prod.rating ? `★ ${prod.rating} (${prod.resenas} reseñas)` : "";
     $("modalProdNote").value = "";
     $("modalProdNote").placeholder = persCfg.placeholderNota || "Indicaciones especiales...";
     const noteLabel = $("modalProdNoteLabel");
@@ -480,7 +481,7 @@
             <input type="radio" name="modalSize" value="${idx}" ${idx === selCard.presIdx ? "checked" : ""}>
             <span>${escapeHtml(pres.nombre)}</span>
           </span>
-          <span class="option-price">${pres.extra > 0 ? `+ ${formatoPrecio(pres.extra)}` : "Incluido"}</span>
+          <span class="option-price">${prod.turno === "Noche" ? formatoPrecio(prod.precio + pres.extra) : (pres.extra > 0 ? `+ ${formatoPrecio(pres.extra)}` : "Incluido")}</span>
         </label>
       `)
       .join("");
@@ -1147,7 +1148,7 @@
     $("trackerTotal").textContent = formatoPrecio(pedido.resumen.total);
     $("trackerTimePlaced").textContent = pedido.fechaHora;
     $("trackerStepPrepTitle").textContent = pedido.items.some((i) => i.turno === "Noche")
-      ? "En el Horno de Leña (450°C)"
+      ? "En preparación"
       : "Preparando tus Jugos Frescos";
     $("trackerReopenWA").href = pedido.urlWhatsApp;
 

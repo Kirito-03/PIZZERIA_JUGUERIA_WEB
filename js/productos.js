@@ -77,27 +77,10 @@ window.SOL_BRASA_PERSONALIZACION = {
     placeholderNota: "Ej: Sin mayonesa, bien tostado..."
   },
   pizza: {
-    grupoUnico1: {
-      titulo: "Estilo de Masa & Borde",
-      obligatorio: true,
-      opciones: [
-        { id: "canotto", nombre: "Masa Tradicional Canotto (borde aireado 48h)", extra: 0 },
-        { id: "fina", nombre: "Masa Fina Crocante estilo romano", extra: 0 },
-        { id: "borde-ricota", nombre: "Borde Relleno de Ricota & Albahaca", extra: 6.00 }
-      ]
-    },
+    grupoUnico1: null,
     grupoUnico2: null,
-    extras: {
-      titulo: "Adicionales de Autor",
-      opciones: [
-        { id: "miel-picante", nombre: "Miel Picante Artesanal (Hot Honey)", extra: 3.50 },
-        { id: "extra-fior", nombre: "Extra Queso Mozzarella Fior di Latte", extra: 5.00 },
-        { id: "prosciutto", nombre: "Prosciutto di Parma Reserva", extra: 8.00 },
-        { id: "champinones", nombre: "Champiñones salteados al ajillo", extra: 4.50 },
-        { id: "aceitunas", nombre: "Aceitunas negras de botija", extra: 3.00 }
-      ]
-    },
-    placeholderNota: "Ej: Borde bien dorado, cortar en 8 porciones, orégano aparte..."
+    extras: null,
+    placeholderNota: "Ej: indicaciones para la cocina..."
   },
   entrada: {
     grupoUnico1: {
@@ -292,174 +275,104 @@ window.SOL_BRASA_PRODUCTOS = [
     ]
   },
 
-  // ===================== MODO NOCHE: PIZZERÍA A LA LEÑA =====================
+  // ===================== CARTA DE PIZZAS DE LAS FOTOS =====================
   {
-    id: "pizza-1",
-    descripcionCorta: "Mozzarella, tomate y albahaca fresca.",
-    nombre: "Napolitana Suprema Brasa",
-    descripcion: "Masa madre 48h horneada a 450°C, pomodoro San Marzano DOP, mozzarella fior di latte ahumado, albahaca fresca y aceite de oliva virgen.",
-    precio: 45.00,
-    categoria: "Pizzas de Autor",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "La Más Pedida",
-    rating: 4.95,
-    resenas: 380,
-    calorias: "Horno 450°C",
-    tiempo: "25 min",
-    destacado: true,
-    imagen: "img/pizzas/napolitana-suprema.png",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 12.00 }
-    ]
+    id: "menu-pizza-1", nombre: "Americana",
+    descripcionCorta: "Jamón y queso.", descripcion: "Jamón y queso. Incluye pan al ajo.",
+    precio: 17, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: true, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 10 }, { nombre: "Familiar", extra: 28 }]
   },
   {
-    id: "pizza-2",
-    descripcionCorta: "Pepperoni, mozzarella y miel picante.",
-    nombre: "Pepperoni & Miel Picante",
-    descripcion: "Abundante pepperoni americano crocante en copas, mozzarella artesanal fundida y nuestro toque de miel pura con ají amarillo ahumado.",
-    precio: 45.00,
-    categoria: "Pizzas de Autor",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "Picor Dulce",
-    rating: 5.0,
-    resenas: 210,
-    calorias: "Masa 48h",
-    tiempo: "25 min",
-    destacado: true,
-    imagen: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=700&q=80",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 12.00 }
-    ]
+    id: "menu-pizza-2", nombre: "Hawaiana",
+    descripcionCorta: "Jamón, piña y queso.", descripcion: "Jamón, piña y queso. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
   },
   {
-    id: "pizza-3",
-    descripcionCorta: "Mozzarella, gorgonzola, parmesano y queso andino.",
-    nombre: "Cuatro Quesos Brasa",
-    descripcion: "Fusión cremosa de mozzarella fior di latte, gorgonzola italiano, parmesano reggiano de 18 meses y queso andino curado.",
-    precio: 46.00,
-    categoria: "Pizzas de Autor",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "Gorgonzola",
-    rating: 4.8,
-    resenas: 95,
-    calorias: "Masa 48h",
-    tiempo: "25 min",
-    destacado: false,
-    imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 12.00 }
-    ]
+    id: "menu-pizza-3", nombre: "Peperoni",
+    descripcionCorta: "Jamón, peperoni y queso.", descripcion: "Jamón, peperoni y queso. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
   },
   {
-    id: "pizza-4",
-    descripcionCorta: "Champiñones al ajillo, prosciutto y arúgula.",
-    nombre: "Champiñones & Prosciutto",
-    descripcion: "Champiñones frescos salteados al ajillo, finas lonchas de prosciutto di Parma añadidas post-horno y hojas tiernas de arúgula.",
-    precio: 48.00,
-    categoria: "Pizzas de Autor",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "Edición Chef",
-    rating: 4.9,
-    resenas: 112,
-    calorias: "Masa 48h",
-    tiempo: "25 min",
-    destacado: true,
-    imagen: "img/pizzas/champinones-prosciutto.jpg",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 14.00 }
-    ]
+    id: "menu-pizza-4", nombre: "Regional",
+    descripcionCorta: "Chorizo, cecina, jamón y queso.", descripcion: "Chorizo, cecina, jamón y queso. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
   },
   {
-    id: "pizza-5",
-    descripcionCorta: "Tomate, mozzarella, jamón y orégano.",
-    nombre: "Americana Suprema a la Leña",
-    descripcion: "Salsa de tomates italianos horneados, abundante queso mozzarella fundido, jamón inglés ahumado y orégano de chacra.",
-    precio: 36.00,
-    categoria: "Pizzas Clásicas",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "Clásica",
-    rating: 4.8,
-    resenas: 260,
-    calorias: "Horno Leña",
-    tiempo: "20 min",
-    destacado: false,
-    imagen: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 10.00 }
-    ]
+    id: "menu-pizza-5", nombre: "Chorizo ahumado",
+    descripcionCorta: "Jamón, chorizo ahumado y queso.", descripcion: "Jamón, chorizo ahumado y queso. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
   },
   {
-    id: "pizza-6",
-    descripcionCorta: "Jamón, piña caramelizada y mozzarella.",
-    nombre: "Hawaiana Golden al Quebracho",
-    descripcion: "Jamón inglés premium, trozos de piña Golden caramelizada al fuego de leña y generosa capa de mozzarella.",
-    precio: 38.00,
-    categoria: "Pizzas Clásicas",
-    turno: "Noche",
-    tipo: "pizza",
-    etiqueta: "Dulce & Ahumado",
-    rating: 4.7,
-    resenas: 145,
-    calorias: "Horno Leña",
-    tiempo: "20 min",
-    destacado: false,
-    imagen: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80",
-    presentaciones: [
-      { nombre: "Mediana (6 porciones · 28cm)", extra: 0 },
-      { nombre: "Familiar (8 porciones · 35cm)", extra: 10.00 }
-    ]
+    id: "menu-pizza-6", nombre: "Oxapampina",
+    descripcionCorta: "Chorizo, cecina, jamón, carne de res y queso.", descripcion: "Chorizo, cecina, jamón, carne de res y queso. Incluye pan al ajo.",
+    precio: 28, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 15 }, { nombre: "Familiar", extra: 37 }]
   },
   {
-    id: "pizza-7",
-    descripcionCorta: "Ricota, mozzarella, jamón y salsa de tomate.",
-    nombre: "Calzone Relleno Tradición",
-    descripcion: "Masa de leña doblada a mano y sellada con ricota fresca, mozzarella, jamón artesanal y espejo de salsa pomodoro.",
-    precio: 36.00,
-    categoria: "Calzones & Entradas",
-    turno: "Noche",
-    tipo: "entrada",
-    etiqueta: "Masa Doblada",
-    rating: 4.8,
-    resenas: 78,
-    calorias: "Individual Grande",
-    tiempo: "22 min",
-    destacado: false,
-    imagen: "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=700&q=80",
-    presentaciones: [
-      { nombre: "Individual Grande", extra: 0 },
-      { nombre: "Doble Compartir", extra: 14.00 }
-    ]
+    id: "menu-pizza-7", nombre: "Continental",
+    descripcionCorta: "Champiñón, pimiento y queso.", descripcion: "Champiñón, pimiento y queso. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
   },
   {
-    id: "pizza-8",
-    descripcionCorta: "Pan artesanal con ajo, orégano y mozzarella.",
-    nombre: "Pan al Ajo Supremo a la Leña",
-    descripcion: "Baguette artesanal tostado al fuego vivo con mantequilla de ajo confitado, orégano fresco y abundante mozzarella dorada.",
-    precio: 18.00,
-    categoria: "Calzones & Entradas",
-    turno: "Noche",
-    tipo: "entrada",
-    etiqueta: "8 Rodajas",
-    rating: 4.9,
-    resenas: 240,
-    calorias: "Para Compartir",
-    tiempo: "12 min",
-    destacado: false,
-    imagen: "img/pizzas/pan-al-ajo.jpg",
-    presentaciones: [
-      { nombre: "Porción Clásica (8 rodajas)", extra: 0 },
-      { nombre: "Porción Familiar (14 rodajas)", extra: 9.00 }
-    ]
+    id: "menu-pizza-8", nombre: "Trujillana",
+    descripcionCorta: "Champiñón, aceituna, pimiento, queso y jamón.", descripcion: "Champiñón, aceituna, pimiento, queso y jamón. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
+  },
+  {
+    id: "menu-pizza-9", nombre: "Italiana",
+    descripcionCorta: "Carne, jamón, cecina y queso.", descripcion: "Carne, jamón, cecina y queso. Incluye pan al ajo.",
+    precio: 25, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 15 }, { nombre: "Familiar", extra: 35 }]
+  },
+  {
+    id: "menu-pizza-10", nombre: "Suprema",
+    descripcionCorta: "Queso, carne, peperoni, cebolla y pimiento.", descripcion: "Queso, carne, peperoni, cebolla y pimiento. Incluye pan al ajo.",
+    precio: 22, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 33 }]
+  },
+  {
+    id: "menu-pizza-11", nombre: "Vegetariana",
+    descripcionCorta: "Queso, champiñón, pimiento y cebolla.", descripcion: "Queso, champiñón, pimiento y cebolla. Incluye pan al ajo.",
+    precio: 20, categoria: "Pizzas", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 15 }, { nombre: "Familiar", extra: 30 }]
+  },
+  {
+    id: "menu-pizza-12", nombre: "2 estaciones",
+    descripcionCorta: "Americana y hawaiana.", descripcion: "Americana y hawaiana. Incluye pan al ajo.",
+    precio: 20, categoria: "Especiales", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Personal", extra: 0 }, { nombre: "Mediana", extra: 13 }, { nombre: "Familiar", extra: 30 }]
+  },
+  {
+    id: "menu-pizza-13", nombre: "4 estaciones súper familiar",
+    descripcionCorta: "Americana, hawaiana, peperoni y regional. Incluye pan al ajo.", descripcion: "Americana, hawaiana, peperoni y regional. Incluye pan al ajo.",
+    precio: 50, categoria: "Especiales", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Súper familiar", extra: 0 }]
+  },
+  {
+    id: "menu-pizza-14", nombre: "4 estaciones carnívora",
+    descripcionCorta: "Italiana, suprema, chorizo ahumado y oxapampina. Incluye pan al ajo.", descripcion: "Italiana, suprema, chorizo ahumado y oxapampina. Incluye pan al ajo.",
+    precio: 60, categoria: "Especiales", turno: "Noche", tipo: "pizza",
+    etiqueta: "", destacado: false, imagen: "img/pizzas/napolitana-suprema.png",
+    presentaciones: [{ nombre: "Presentación única", extra: 0 }]
   }
 ];
 
@@ -485,27 +398,5 @@ window.SOL_BRASA_COMBOS = [
     turno: "Día",
     rinde: "Energía completa",
     imagen: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    id: "combo-noche-1",
-    nombre: "Noche de Amigos Pizza",
-    descripcion: "2 Pizzas Familiares a elección (Clásicas o Especiales) + 1 Pan al Ajo Supremo + 1 Bebida 1.5L helada.",
-    precio: 68.00,
-    precioAnterior: 90.00,
-    ahorro: "MÁS VENDIDO",
-    turno: "Noche",
-    rinde: "Rinde 4 a 6 personas",
-    imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    id: "combo-noche-2",
-    nombre: "Dúo Pizzero Artesanal",
-    descripcion: "1 Pizza Mediana de Autor a elección + 1 Calzone Tradición o Pan al Ajo Supremo + 2 Jugos o Cervezas.",
-    precio: 49.00,
-    precioAnterior: 65.00,
-    ahorro: "IDEAL PAREJAS",
-    turno: "Noche",
-    rinde: "Perfecto para 2",
-    imagen: "img/pizzas/champinones-prosciutto.jpg"
   }
 ];

@@ -50,7 +50,7 @@ window.SolBrasaHorarios = (function () {
         abierto: true,
         etiquetaEstado: "Abierto · Juguería Fresca",
         detalleTurno: `Turno Día activo (${jugueria.etiqueta})`,
-        siguienteTurno: `Pizzería a la leña abre a las 05:00 p.m.`
+        siguienteTurno: `Pizzería abre a las 05:00 p.m.`
       };
     }
 
@@ -58,7 +58,7 @@ window.SolBrasaHorarios = (function () {
       return {
         turno: "Noche",
         abierto: true,
-        etiquetaEstado: "Abierto · Horno 450°C Encendido",
+        etiquetaEstado: "Abierto · Pizzería",
         detalleTurno: `Turno Noche activo (${pizzeria.etiqueta})`,
         siguienteTurno: `Juguería fresca abre mañana a las 07:00 a.m.`
       };
