@@ -9,7 +9,7 @@ window.SOL_BRASA_CONFIG = {
   telefonoWhatsApp: "51999888777",
   telefonoVisible: "+51 999 888 777",
   telefonoFijo: "(01) 445-9988",
-  direccion: "Puerto Inca, Perú · Dirección por confirmar",
+  direccion: "Puerto Inca, Perú · Ubicación exacta en el mapa",
   referenciaLocal: "Dirección exacta por confirmar",
   pagos: {
     yapePlinNumero: "999 888 777",
@@ -40,8 +40,8 @@ window.SOL_BRASA_CONFIG = {
       etiqueta: "05:00 p.m. - 11:30 p.m."
     }
   },
-  mapsEmbedUrl: "",
-  mapsLinkUrl: "https://www.google.com/maps/search/?api=1&query=Puerto+Inca%2C+Per%C3%BA",
+  mapsEmbedUrl: "https://www.openstreetmap.org/export/embed.html?bbox=-74.969%2C-9.382%2C-74.961%2C-9.376&layer=mapnik&marker=-9.3788549%2C-74.9648422",
+  mapsLinkUrl: "https://maps.app.goo.gl/KBf6gwWxFdThZdmi7",
   redes: {
     instagram: "https://instagram.com",
     facebook: "https://facebook.com",
