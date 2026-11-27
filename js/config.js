@@ -40,7 +40,7 @@ window.SOL_BRASA_CONFIG = {
       etiqueta: "05:00 p.m. - 11:30 p.m."
     }
   },
-  mapsEmbedUrl: "https://www.openstreetmap.org/export/embed.html?bbox=-74.969%2C-9.382%2C-74.961%2C-9.376&layer=mapnik&marker=-9.3788549%2C-74.9648422",
+  mapsEmbedUrl: "https://maps.google.com/maps?q=-9.3788549%2C-74.9648422&t=k&z=18&output=embed",
   mapsLinkUrl: "https://maps.app.goo.gl/KBf6gwWxFdThZdmi7",
   redes: {
     instagram: "https://instagram.com",
